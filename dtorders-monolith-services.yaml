@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: dtorders
+  name: dtorders-monolith
+  namespace: monolith
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30001
+  selector:
+    run: dtorders
+  type: NodePort
+status:
+  loadBalancer: {}
